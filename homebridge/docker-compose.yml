@@ -1,0 +1,13 @@
+version: "2.1"
+services:
+  homebridge:
+    image: oznu/homebridge
+    container_name: homebridge
+    networks:
+      HomeNetwork:
+        ipv4_address: 172.28.28.33
+    restart: unless-stopped
+
+networks:
+  HomeNetwork:
+    external: true
