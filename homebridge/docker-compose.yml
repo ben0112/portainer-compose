@@ -6,6 +6,9 @@ services:
     environment:
       - PUID=0
       - PGID=0
+      - HOMEBRIDGE_CONFIG_UI=1
+      - HOMEBRIDGE_CONFIG_UI_PORT=8581
+      - TZ=Asia/Shanghai
     networks:
       HomeNetwork:
         ipv4_address: 172.28.28.33
