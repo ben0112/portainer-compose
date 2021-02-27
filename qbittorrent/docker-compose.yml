@@ -15,7 +15,7 @@ services:
       - av:/av
       - movies:/movies
       - tv:/tv
-    restart: unless-stopped
+    restart: always
     
 volumes:
   qbittorrent_config:
