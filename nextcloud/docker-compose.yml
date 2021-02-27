@@ -13,7 +13,7 @@ services:
     networks:
       HomeNetwork:
         ipv4_address: 172.28.28.34
-    restart: unless-stopped
+    restart: always
 
 networks:
   HomeNetwork:
