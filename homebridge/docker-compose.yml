@@ -14,7 +14,7 @@ services:
         ipv4_address: 172.28.28.33
     volumes: 
       - homebridge_config:/homebridge
-    restart: unless-stopped
+    restart: always
 
 networks:
   HomeNetwork:
