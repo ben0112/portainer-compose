@@ -19,7 +19,8 @@ services:
 volumes:
   nextcloud_data:
     external: true
-    
+  nextcloud_config:
+    external: true
 networks:
   HomeNetwork:
     external: true
