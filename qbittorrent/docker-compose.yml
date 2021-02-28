@@ -3,7 +3,6 @@ services:
   qbittorrent:
     image: ghcr.io/linuxserver/qbittorrent
     container_name: qbittorrent
-    network_mode: host
     environment:
       - PUID=0
       - PGID=0
@@ -15,6 +14,10 @@ services:
       - av:/av
       - movies:/movies
       - tv:/tv
+    ports:
+      - 46881:46881
+      - 46881:46881/udp
+      - 8080:8080
     restart: always
     
 volumes:
