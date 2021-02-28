@@ -17,8 +17,6 @@ services:
     restart: always
  
 volumes:
-  nextcloud_config:
-    external: true
   nextcloud_data:
     external: true
     
