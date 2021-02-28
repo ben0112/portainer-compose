@@ -6,10 +6,6 @@ volumes:
   db:
     external: true
 
-networks:
-  HomeNetwork:
-    external: true
-
 services:
   db:
     image: mariadb
@@ -24,8 +20,10 @@ services:
       - MYSQL_USER=nextcloud
 
   app:
-    image: nextcloud:fpm
+    image: nextcloud
     restart: always
+    port:
+      - 8080:80
     links:
       - db
     volumes:
@@ -35,16 +33,3 @@ services:
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=nextcloud
       - MYSQL_HOST=db
-
-  web:
-    image: nginx
-    restart: always
-    networks:
-      HomeNetwork:
-        ipv4_address: 172.28.28.34
-    links:
-      - app
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-    volumes_from:
-      - app
