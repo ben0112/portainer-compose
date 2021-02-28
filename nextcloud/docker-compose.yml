@@ -22,7 +22,7 @@ services:
   app:
     image: nextcloud
     restart: always
-    port:
+    ports:
       - 8080:80
     links:
       - db
