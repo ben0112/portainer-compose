@@ -1,1 +1,1 @@
-docker run --name emby --restart always --gpus all --network=host --env PUID=0 --env PGID=0 --volume emby:/config --volume av:/data ghcr.io/linuxserver/emby
+docker run -d --name emby --restart always --gpus all --network=host --env PUID=0 --env PGID=0 --volume emby:/config --volume av:/data ghcr.io/linuxserver/emby
