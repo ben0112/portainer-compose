@@ -14,10 +14,9 @@ services:
       - av:/av
       - movies:/movies
       - tv:/tv
-    ports:
-      - 46881:46881
-      - 46881:46881/udp
-      - 8080:8080
+    networks:
+      HomeNetwork:
+        ipv4_address: 172.28.28.34
     restart: always
     
 volumes:
@@ -30,4 +29,8 @@ volumes:
   tv:
     external: true
   download:
+    external: true
+
+networks:
+  HomeNetwork:
     external: true
