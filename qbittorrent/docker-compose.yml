@@ -17,6 +17,9 @@ services:
     networks:
       HomeNetwork:
         ipv4_address: 172.28.28.34
+    dns:
+      - 223.5.5.5
+      - 114.114.114.114
     restart: always
     
 volumes:
