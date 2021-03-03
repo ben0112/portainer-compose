@@ -1,1 +1,1 @@
-docker run -d --name plex --restart always --gpus all --network=host --env VERSION=docker --env PUID=0 --env PGID=0 --volume plex:/config --volume media:/media linuxserver/plex
+docker run -d --name plex --restart always --gpus all --network=host --dns 172.28.28.254 --dns 223.5.5.5 --env VERSION=docker --env PUID=0 --env PGID=0 --volume plex:/config --volume media:/media linuxserver/plex
