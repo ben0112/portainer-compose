@@ -1,0 +1,12 @@
+version: "2.1"
+services:
+  debian:
+    image: debian
+    container_name: telecom
+    networks:
+      HomeNetwork:
+        ipv4_address: 172.28.28.61
+    restart: always
+networks:
+  HomeNetwork:
+    external: true
