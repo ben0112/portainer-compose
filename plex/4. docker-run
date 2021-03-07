@@ -1,1 +1,1 @@
-docker run -d --name plex --restart always --gpus all --network=host --dns 172.28.28.254 --dns 223.5.5.5 --env VERSION=docker --env PUID=0 --env PGID=0 --volume plex:/config --volume media:/media linuxserver/plex
+docker run -it -d --name PlexServer --restart always --gpus all --network=host --env TZ="Asia/Shanghai" --env PLEX_UID=0 --env PLEX_GID=0 --env PLEX_CLAIM="" --volume /root/docker_volume/nfs/pms_config:/config --volume /root/docker_volume/nfs/pms_transcode:/transcode --volume /root/docker_volume/cifs/media:/data plexinc/pms-docker:plexpass
