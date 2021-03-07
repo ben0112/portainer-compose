@@ -1,0 +1,8 @@
+apt install cifs-utils nfs-common
+#edit /etc/fstab
+#create cifs credentials in /root/.smb
+#create mount points
+//172.28.28.29/av	/root/docker_volume/cifs/av	cifs	uid=0,credentials=/root/.smb,iocharset=utf8,vers=3.0,noperm 0 0
+//172.28.28.29/multimedia	/root/docker_volume/cifs/media	cifs	uid=0,credentials=/root/.smb,iocharset=utf8,vers=3.0,noperm 0 0
+172.28.28.29:/mnt/zpool0/docker_volume	/root/docker_volume/nfs	nfs	defaults 0 0
+mount -a
