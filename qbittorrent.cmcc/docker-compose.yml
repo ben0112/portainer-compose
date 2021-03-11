@@ -1,0 +1,39 @@
+version: "2.1"
+services:
+  qbittorrent:
+    image: ghcr.io/linuxserver/qbittorrent
+    container_name: qbittorrent
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Asia/Shanghai
+      - WEBUI_PORT=8080
+    volumes:
+      - qbittorrent.cmcc_config:/config
+      - download:/downloads
+      - av:/av
+      - movies:/movies
+      - tv:/tv
+    networks:
+      HomeNetwork:
+        ipv4_address: 172.28.28.35
+    dns:
+      - 223.5.5.5
+      - 114.114.114.114
+    restart: always
+    
+volumes:
+  qbittorrent_config:
+    external: true
+  av:
+    external: true
+  movies:
+    external: true
+  tv:
+    external: true
+  download:
+    external: true
+
+networks:
+  HomeNetwork:
+    external: true
