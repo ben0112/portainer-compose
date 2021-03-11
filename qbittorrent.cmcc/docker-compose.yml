@@ -23,7 +23,7 @@ services:
     restart: always
     
 volumes:
-  qbittorrent_config:
+  qbittorrent.cmcc_config:
     external: true
   av:
     external: true
