@@ -1,5 +1,1 @@
-Official
-docker run -it -d --name PlexServer --restart always --gpus all --network=host --env TZ="Asia/Shanghai" --env PLEX_UID=0 --env PLEX_GID=0 --env PLEX_CLAIM="https://plex.tv/claim" --volume /root/docker_volume/nfs/pms_config:/config --volume /root/docker_volume/nfs/pms_transcode:/transcode --volume /root/docker_volume/cifs/media:/data plexinc/pms-docker:plexpass
-
-LinuxServer
-docker run -it -d --name plex --restart always --gpus all --network=host --env TZ="Asia/Shanghai" --env PUID=0 --env PGID=0 --env VERSION=docker --env PLEX_CLAIM="https://plex.tv/claim" --volume /root/docker_volume/nfs/plex_config:/config --volume /root/docker_volume/cifs/media:/data ghcr.io/linuxserver/plex
+docker run -it -d --name plex --restart always --gpus all --network=host --env TZ="Asia/Shanghai" --env PUID=0 --env PGID=0 --env VERSION=docker --volume /opt/docker_volume/plex_config:/config --volume /root/docker_volume/cifs/media:/data ghcr.io/linuxserver/plex
