@@ -1,1 +1,1 @@
-docker run -d --name emby --restart always --gpus all --network=host --env PUID=0 --env PGID=0 --volume /root/docker_volume/nfs/emby_config:/config --volume /root/docker_volume/cifs/av:/media ghcr.io/linuxserver/emby
+docker run -d --name emby --restart always --gpus all --network=host --env PUID=0 --env PGID=0 --volume /opt/docker_volume/emby_config:/config --volume /root/docker_volume/cifs/av:/media ghcr.io/linuxserver/emby
