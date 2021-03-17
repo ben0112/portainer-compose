@@ -12,12 +12,18 @@ services:
       # WEBPASSWORD: 'set a secure password here or it will be random'
     # Volumes store your data between container upgrades
     volumes:
-      - '/root/docker_volume/nfs/pihole_config:/etc/pihole/'
-      - '/root/docker_volume/nfs/pihole_config/dnsmasq_config:/etc/dnsmasq.d/'
+      - pihole_config:/etc/pihole/
+      - pihole_dnsmasq_config:/etc/dnsmasq.d/
     cap_add:
       - NET_ADMIN
     restart: always
 
 networks:
   HomeNetwork:
+    external: true
+    
+volumes:
+  pihole_config:
+    external: true
+  pihole_dnsmasq_config:
     external: true
