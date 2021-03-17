@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    networks:
+      HomeNetwork:
+        ipv4_address: 172.28.28.44
+    environment:
+      TZ: 'Asia/Shanghai'
+      # WEBPASSWORD: 'set a secure password here or it will be random'
+    # Volumes store your data between container upgrades
+    volumes:
+      - '/root/docker_volume/nfs/pihole_config:/etc/pihole/'
+      - '/root/docker_volume/nfs/pihole_config/dnsmasq_config:/etc/dnsmasq.d/'
+    cap_add:
+      - NET_ADMIN
+    restart: always
+
+networks:
+  HomeNetwork:
+    external: true
