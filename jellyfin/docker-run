@@ -1,0 +1,1 @@
+docker run -it -d --name jellyfin --restart always --gpus all --network=host --user 0:0 --group-add=108 --volume /opt/docker_volume/jellyfin_config:/config --volume /opt/docker_volume/jellyfin_cache:/cache --volume /dev/shm:/mnt/transcode --volume /root/docker_volume/cifs/media:/mnt/media --volume /root/docker_volume/cifs/av:/mnt/av jellyfin/jellyfin
