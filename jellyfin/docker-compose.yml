@@ -1,21 +1,20 @@
-version: "2.1"
+version: "2.3"
 services:
   jellyfin:
-    image: ghcr.io/linuxserver/jellyfin
+    image: jellyfin/jellyfin
     container_name: jellyfin
-    stdin_open: true
-    tty: true
+    user: 0:0
+    group_add:
+      - 108
+    network_mode: "host"
+    restart: "always"
+    runtime: nvidia
     environment:
-      - PUID=0
-      - PGID=0
-      - TZ=Asia/Shanghai
-      - JELLYFIN_PublishedServerUrl=172.28.28.80
       - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
     volumes:
-      - /root/docker_volume/nfs/jellyfin_config:/config
-      - /root/docker_volume/cifs/media:/data
-    ports:
-      - 8096:8096
-      - 8920:8920
-      - 7359:7359/udp
-    restart: always
+      - /opt/docker_volume/jellyfin_config:/config
+      - /opt/docker_volume/jellyfin_cache:/cache
+      - /dev/shm:/mnt/transcode
+      - /root/docker_volume/cifs/media:/mnt/media
+      - /root/docker_volume/cifs/av:/mnt/av
