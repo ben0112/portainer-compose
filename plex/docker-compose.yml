@@ -1,28 +1,21 @@
-version: "2.1"
+version: "2.3"
 services:
   plex:
     image: ghcr.io/linuxserver/plex
     container_name: plex
-    ports:
-      - 32400:32400
-      - 1900:1900/udp
-      - 3005:3005
-      - 5353:5353/udp
-      - 8324:8324
-      - 32410:32410/udp
-      - 32412:32412/udp
-      - 32413:32413/udp
-      - 32414:32414/udp
-      - 32469:32469
     stdin_open: true
     tty: true
+    network_mode: "host"
+    restart: "always"
+    runtime: nvidia
     environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
       - PUID=0
       - PGID=0
       - VERSION=docker
       - TZ=Asia/Shanghai
-      - NVIDIA_VISIBLE_DEVICES=all
     volumes:
-      - /root/docker_volume/nfs/plex_config:/config
+      - /opt/docker_volume/plex_config:/config
       - /root/docker_volume/cifs/media:/data
-    restart: always
+      - /dev/shm:/transcode
