@@ -1,23 +1,21 @@
 version: "3"
-
 services:
   pihole:
-    container_name: pihole
     image: pihole/pihole:latest
+    container_name: pihole
+    stdin_open: true
+    tty: true
     networks:
       HomeNetwork:
         ipv4_address: 172.28.28.44
     environment:
       TZ: 'Asia/Shanghai'
-      # WEBPASSWORD: 'set a secure password here or it will be random'
-    # Volumes store your data between container upgrades
     volumes:
       - /opt/volume/pihole_config:/etc/pihole/
       - /opt/volume/pihole_dnsmasq_config:/etc/dnsmasq.d/
     cap_add:
       - NET_ADMIN
     restart: always
-
 networks:
   HomeNetwork:
     external: true
