@@ -1,0 +1,17 @@
+
+version: "2.3"
+services:
+  tmm:
+    image: romancin/tinymediamanager:v4-latest
+    container_name: tmm
+    stdin_open: true
+    tty: true
+    network_mode: host
+    restart: "always"
+    environment:
+      - GROUP_ID=0
+      - USER_ID=0
+      - TZ=Asia/Shanghai
+    volumes:
+      - /opt/docker_volume/tmm_config:/config
+      - /root/docker_volume/cifs/media:/media
