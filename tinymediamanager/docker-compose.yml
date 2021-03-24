@@ -12,6 +12,8 @@ services:
       - GROUP_ID=0
       - USER_ID=0
       - TZ=Asia/Shanghai
+      - ENABLE_CJK_FONT=1
+      - CLEAN_TMP_DIR=1
     volumes:
       - /opt/docker_volume/tmm_config:/config
       - /root/docker_volume/cifs/media:/media
