@@ -6,8 +6,8 @@ services:
     user: 0:0
     group_add:
       - 108
-    network_mode: "host"
-    restart: "always"
+    network_mode: host
+    restart: unless-stopped
     runtime: nvidia
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
