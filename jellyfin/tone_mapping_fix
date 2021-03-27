@@ -1,0 +1,2 @@
+/etc/OpenCL/vendors and create a file called nvidia.icd
+Add libnvidia-opencl.so.1 inside nvidia.icd file. 
