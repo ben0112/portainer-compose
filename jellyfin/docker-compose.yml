@@ -13,6 +13,6 @@ services:
     volumes:
       - /opt/docker_volume/jellyfin_config:/config
       - /opt/docker_volume/jellyfin_cache:/cache
-      - /dev/shm:/mnt/transcode
-      - /root/docker_volume/cifs/media:/mnt/media
-      - /root/docker_volume/cifs/av:/mnt/av
+      - /dev/shm:/transcode
+      - /root/docker_volume/cifs/media:/media
+      - /root/docker_volume/cifs/av:/av
