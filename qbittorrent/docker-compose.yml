@@ -49,4 +49,4 @@ volumes:
     driver_opts:
       type: cifs
       o: "username=docker,password=docker,vers=3.0"
-      device: "	//172.28.28.29/multimedia/TV Shows"
+      device: "//172.28.28.29/multimedia/TV Shows"
