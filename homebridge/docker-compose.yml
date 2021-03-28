@@ -10,10 +10,10 @@ services:
       - TZ=Asia/Shanghai
     network_mode: host
     volumes: 
-      - homebridge_config:/homebridge
+      - config:/homebridge
     restart: always
 volumes:
-  homebridge_config:
+  config:
     driver: local
     driver_opts:
       type: nfs
