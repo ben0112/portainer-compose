@@ -15,9 +15,6 @@ services:
       - av:/av
       - movies:/movies
       - tv:/tv
-    dns:
-      - 223.5.5.5
-      - 114.114.114.114
     restart: always
     
 volumes:
