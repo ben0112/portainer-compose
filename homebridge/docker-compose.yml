@@ -1,4 +1,3 @@
-version: "2.1"
 services:
   homebridge:
     image: oznu/homebridge
@@ -9,17 +8,14 @@ services:
       - HOMEBRIDGE_CONFIG_UI=1
       - HOMEBRIDGE_CONFIG_UI_PORT=8581
       - TZ=Asia/Shanghai
-    networks:
-      HomeNetwork:
-        ipv4_address: 172.28.28.33
+    network_mode: host
     volumes: 
       - homebridge_config:/homebridge
     restart: always
-
-networks:
-  HomeNetwork:
-    external: true
-    
 volumes:
   homebridge_config:
-    external: true
+    driver: local
+    driver_opts:
+      type: nfs
+      o: "addr=172.28.28.29,rw,vers=4.0,soft,nolock"
+      device: ":/mnt/zpool0/docker_volume/homebridge_config"
