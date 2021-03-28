@@ -30,23 +30,23 @@ volumes:
     driver: local
     driver_opts:
       type: cifs
-      o: "username=docker,password=docker,vers=3.0"
+      o: "username=docker,password=docker"
       device: "	//172.28.28.29/download"
   av:
     driver: local
     driver_opts:
       type: cifs
-      o: "username=docker,password=docker,vers=3.0"
+      o: "username=docker,password=docker"
       device: "//172.28.28.29/av"
   movies:
     driver: local
     driver_opts:
       type: cifs
-      o: "username=docker,password=docker,vers=3.0"
+      o: "username=docker,password=docker"
       device: "//172.28.28.29/multimedia/Movies"
   tv:
     driver: local
     driver_opts:
       type: cifs
-      o: "username=docker,password=docker,vers=3.0"
+      o: "username=docker,password=docker"
       device: "//172.28.28.29/multimedia/TV Shows"
