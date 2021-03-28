@@ -1,4 +1,3 @@
-version: "2.1"
 services:
   qbittorrent:
     image: ghcr.io/linuxserver/qbittorrent
@@ -9,7 +8,7 @@ services:
       - TZ=Asia/Shanghai
       - WEBUI_PORT=8080
     volumes:
-      - qbittorrent_config:/config
+      - config:/config
       - download:/downloads
       - av:/av
       - movies:/movies
@@ -23,16 +22,36 @@ services:
     restart: always
     
 volumes:
-  qbittorrent_config:
-    external: true
-  av:
-    external: true
-  movies:
-    external: true
-  tv:
-    external: true
+  config:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: "addr=172.28.28.29,rw,vers=4.0,soft,nolock"
+      device: "	:/mnt/zpool0/docker_volume/qbittorrent_config"
   download:
-    external: true
+    driver: local
+    driver_opts:
+      type: cifs
+      o: "username=docker,password=docker,vers=3.0"
+      device: "	//172.28.28.29/download"
+  av:
+    driver: local
+    driver_opts:
+      type: cifs
+      o: "username=docker,password=docker,vers=3.0"
+      device: "//172.28.28.29/av"
+  movies:
+    driver: local
+    driver_opts:
+      type: cifs
+      o: "username=docker,password=docker,vers=3.0"
+      device: "//172.28.28.29/multimedia/Movies"
+  tv:
+    driver: local
+    driver_opts:
+      type: cifs
+      o: "username=docker,password=docker,vers=3.0"
+      device: "	//172.28.28.29/multimedia/TV Shows"
 
 networks:
   HomeNetwork:
