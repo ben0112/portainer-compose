@@ -10,41 +10,9 @@ services:
       - WEBUI_PORT=8080
     network_mode: host
     volumes:
-      - config:/config
-      - download:/downloads
-      - av:/av
-      - movies:/movies
-      - tv:/tv
+      - /opt/docker_volume/qbittorrent_config:/config
+      - /root/docker_volume/cifs/download:/downloads
+      - /root/docker_volume/cifs/av:/av
+      - /root/docker_volume/cifs/media/movies:/movies
+      - /root/docker_volume/cifs/media/tv shows:/tv
     restart: always
-    
-volumes:
-  config:
-    driver: local
-    driver_opts:
-      type: nfs
-      o: "addr=172.28.28.29,rw,vers=4.0,soft,nolock"
-      device: "	:/mnt/zpool0/docker_volume/qbittorrent_config"
-  download:
-    driver: local
-    driver_opts:
-      type: cifs
-      o: "username=docker,password=docker,vers=3.0"
-      device: "	//172.28.28.29/download"
-  av:
-    driver: local
-    driver_opts:
-      type: cifs
-      o: "username=docker,password=docker,vers=3.0"
-      device: "//172.28.28.29/av"
-  movies:
-    driver: local
-    driver_opts:
-      type: cifs
-      o: "username=docker,password=docker,vers=3.0"
-      device: "//172.28.28.29/multimedia/Movies"
-  tv:
-    driver: local
-    driver_opts:
-      type: cifs
-      o: "username=docker,password=docker,vers=3.0"
-      device: "//172.28.28.29/multimedia/TV Shows"
