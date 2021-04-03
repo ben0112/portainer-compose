@@ -1,26 +1,15 @@
 version: "2.1"
-
 services:
   nextcloud:
     image: ghcr.io/linuxserver/nextcloud
     container_name: nextcloud
     environment:
-      - PUID=1006
-      - PGID=1006
+      - PUID=0
+      - PGID=0
       - TZ=Asia/Shanghai
     volumes:
-      - nextcloud_config:/config
-      - nextcloud_data:/data
-    networks:
-      HomeNetwork:
-        ipv4_address: 172.28.28.34
-    restart: always
- 
-volumes:
-  nextcloud_data:
-    external: true
-  nextcloud_config:
-    external: true
-networks:
-  HomeNetwork:
-    external: true
+      - /opt/docker_volume/nextcloud_config:/config
+      - /path/to/data:/data
+    ports:
+      - 443:443
+    restart: unless-stopped
