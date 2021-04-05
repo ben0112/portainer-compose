@@ -10,7 +10,7 @@ services:
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: yes
     security_opt:
-        - seccomp:unconfined
+      - seccomp:unconfined
     ports:
       - 3306:3306
     volumes:
