@@ -2,6 +2,8 @@ services:
   homebridge:
     image: oznu/homebridge
     container_name: homebridge
+    stdin_open: true
+    tty: true
     environment:
       - PUID=0
       - PGID=0
