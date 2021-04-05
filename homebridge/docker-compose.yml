@@ -10,12 +10,5 @@ services:
       - TZ=Asia/Shanghai
     network_mode: host
     volumes: 
-      - config:/homebridge
+      - /mnt/nfs/docker_volume/homebridge_config:/homebridge
     restart: always
-volumes:
-  config:
-    driver: local
-    driver_opts:
-      type: nfs
-      o: "addr=172.28.28.29,rw,vers=4.0,soft,nolock"
-      device: ":/mnt/zpool0/docker_volume/homebridge_config"
