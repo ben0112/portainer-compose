@@ -17,5 +17,5 @@ services:
       - TZ=Asia/Shanghai
     volumes:
       - /opt/docker_volume/plex_config:/config
-      - /root/docker_volume/cifs/media:/data
+      - /mnt/cifs/media:/data
       - /dev/shm:/transcode
