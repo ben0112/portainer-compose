@@ -19,6 +19,6 @@ services:
       - 8920:8920
     volumes:
       - /opt/docker_volume/emby_config:/config
-      - /mnt/cifs/cifs/av:/av
-      - /mnt/cifs/cifs/media:/data
+      - /mnt/cifs/av:/av
+      - /mnt/cifs/media:/data
       - /dev/shm:/transcode
