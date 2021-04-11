@@ -18,4 +18,4 @@ services:
       - 5900:5900
     volumes:
       - /opt/docker_volume/tmm_config:/config
-      - /root/docker_volume/cifs/media:/media
+      - /mnt/cifs/media:/media
