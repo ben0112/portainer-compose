@@ -17,9 +17,6 @@ services:
     ports:
       - 8096:8096
       - 8920:8920
-    dns:
-      - 223.5.5.5
-      - 114.114.114.114
     volumes:
       - /opt/docker_volume/emby_config:/config
       - /mnt/cifs/cifs/av:/av
