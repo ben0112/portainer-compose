@@ -2,7 +2,9 @@ version: "2.1"
 services:
   unifi-controller:
     image: ghcr.io/linuxserver/unifi-controller
-    container_name: unifi-controller
+    container_name: unifi
+    stdin_open: true
+    tty: true
     environment:
       - PUID=0
       - PGID=0
