@@ -10,7 +10,5 @@ services:
     environment:
       - PUID=0
       - PGID=0
-      - fpm="false"
-      - branch="v2-master"
     volumes:
       - /opt/docker_volume/organizr_config:/config
