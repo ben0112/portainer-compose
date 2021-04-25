@@ -1,0 +1,16 @@
+version: "2.3"
+services:
+  organizr:
+    image: organizr/organizr
+    container_name: organizr
+    stdin_open: true
+    tty: true
+    network_mode: host
+    restart: unless-stopped
+    environment:
+      - PUID=0
+      - PGID=0
+      - fpm="false"
+      - branch="v2-master"
+    volumes:
+      - /opt/docker_volume/organizr_config:/config
