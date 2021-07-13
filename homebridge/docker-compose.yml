@@ -12,5 +12,5 @@ services:
       - TZ=Asia/Shanghai
     network_mode: host
     volumes: 
-      - /mnt/nfs/docker_volume/homebridge_config:/homebridge
+      - /opt/docker_volume/homebridge_config:/homebridge
     restart: always
