@@ -1,0 +1,14 @@
+version: "2.3"
+services:
+  guacamole:
+    image: oznu/guacamole
+    container_name: guacamole
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    environment:
+      - EXTENSIONS=auth-totp
+    ports:
+      - 18080:8080
+    volumes:
+      - /opt/docker_volume/guacamole_config:/config
