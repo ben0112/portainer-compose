@@ -1,21 +1,23 @@
 version: "3"
 services:
   pihole:
-    image: pihole/pihole:latest
     container_name: pihole
+    image: pihole/pihole:latest
     stdin_open: true
     tty: true
     networks:
-      HomeNetwork:
-        ipv4_address: 172.28.28.44
+      static_ip:
+        ipv4_address: 172.28.28.33
     environment:
-      TZ: 'Asia/Shanghai'
+      TZ: Asia/Shanghai
+      PIHOLE_DNS_: 223.5.5.5;114.114.114.114
+      SKIPGRAVITYONBOOT: 1
     volumes:
-      - /opt/volume/pihole_config:/etc/pihole/
-      - /opt/volume/pihole_dnsmasq_config:/etc/dnsmasq.d/
+      - /opt/docker_volume/pihole/etc-pihole:/etc/pihole
+      - /opt/docker_volume/pihole/etc-dnsmasq.d:/etc/dnsmasq.d
     cap_add:
       - NET_ADMIN
-    restart: always
+    restart: unless-stopped
 networks:
-  HomeNetwork:
+  static_ip:
     external: true
